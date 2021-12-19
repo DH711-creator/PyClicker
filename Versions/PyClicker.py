@@ -6,7 +6,6 @@ import random
 
 try:
     def runclicker():
-        debug = input("Run in debug mode? y/n ")
 
         mincps = 0.0
         maxcps = 0.0
@@ -14,11 +13,7 @@ try:
         def askcps():
             global mincps, maxcps, amount
             mincps = (1000 / float(input("Enter minimum CPS: ")))*0.001
-            if debug == 'y':
-                print(mincps)
             maxcps = (1000 / float(input("Enter maximum CPS: ")))*0.001
-            if debug == 'y':
-                print(maxcps)
             #Converting CPS into MS delay
             amount = int(input("How many times would you like to click? "))
 
@@ -26,8 +21,6 @@ try:
 
         for i in range(1, amount):
             delay = random.uniform(mincps, maxcps)
-            if debug == 'y':
-                print(delay)
             time.sleep(delay)
             pyautogui.click()
             i = i+1
